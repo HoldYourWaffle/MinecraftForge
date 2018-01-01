@@ -30,14 +30,24 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 
+import javax.annotation.Nonnull;
+
 import com.google.common.base.Predicate;
+import com.google.common.base.Strings;
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
+import com.google.common.collect.Sets;
+
 import net.minecraft.block.Block;
 import net.minecraft.command.EntitySelector;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraft.item.crafting.ShapelessRecipes;
@@ -55,21 +65,13 @@ import net.minecraftforge.common.crafting.CraftingHelper.ShapedPrimer;
 import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.event.furnace.FurnaceFuelBurnTimeEvent;
 import net.minecraftforge.fml.common.FMLLog;
+import net.minecraftforge.fml.common.IEntitySelectorFactory;
 import net.minecraftforge.fml.common.IFuelHandler;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import net.minecraftforge.registries.GameData;
 import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 import net.minecraftforge.registries.RegistryManager;
-import net.minecraftforge.fml.common.IEntitySelectorFactory;
-
-import com.google.common.base.Strings;
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.Lists;
-import com.google.common.collect.Maps;
-import com.google.common.collect.Sets;
-
-import javax.annotation.Nonnull;
 
 public class GameRegistry
 {
@@ -78,6 +80,91 @@ public class GameRegistry
     private static List<IFuelHandler> fuelHandlers = Lists.newArrayList();
     private static List<IWorldGenerator> sortedGeneratorList;
     private static List<IEntitySelectorFactory> entitySelectorFactories = Lists.newArrayList();
+    
+    
+    
+    
+    
+    
+    public enum Type
+    {
+        BLOCK,
+        ITEM;
+    }
+    
+	public static void addRecipe(IRecipe p1)
+	{	
+	}
+	public static void addRecipe(ItemStack p0, Object... p1)
+	{	
+	}
+	public static IRecipe addShapedRecipe(ItemStack p0, Object... p1)
+	{
+		return null;	
+	}
+	public static void addShapelessRecipe(ItemStack p0, Object... p1)
+	{	
+	}
+	public static void addSubstitutionAlias(String p0, Type p1, Object p2)
+	{	
+	}
+	public static Block findBlock(String p0, String p1)
+	{
+		return null;	
+	}
+	public static Item findItem(String p0, String p1)
+	{
+		return null;	
+	}
+	public static <K extends IForgeRegistryEntry<?>> K register(K p0, ResourceLocation p1)
+	{
+		return p0;	
+	}
+	public static Block registerBlock(Block p1)
+	{
+		return p1;	
+	}
+	public static Block registerBlock(Block p0, Class<? extends ItemBlock> p1)
+	{
+		return p0;	
+	}
+	public static Block registerBlock(Block p0, Class<? extends ItemBlock> p1, Object... p2)
+	{
+		return p0;	
+	}
+	public static Block registerBlock(Block p0, Class<? extends ItemBlock> p1, String p2)
+	{
+		return p0;	
+	}
+	public static Block registerBlock(Block p0, Class<? extends ItemBlock> p1, String p2, Object... p3)
+	{
+		return p0;	
+	}
+	public static Block registerBlock(Block p0, String p1)
+	{
+		return p0;	
+	}
+	public static void registerItem(Item p1)
+	{	
+	}
+	public static void registerItem(Item p0, String p1)
+	{	
+	}
+	public static void registerTileEntityWithAlternatives(Class<? extends TileEntity> p0, String p1, String... p2)
+	{	
+	}
+	public static Block registerWithItem(Block p1)
+	{
+		return p1;	
+	}
+    
+    
+    
+    
+    
+    
+    
+    
 
     /**
      * Register a world generator - something that inserts new block types into the world
