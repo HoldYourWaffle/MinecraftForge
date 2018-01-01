@@ -80,6 +80,9 @@ public class GameRegistry {
 	private static List<IWorldGenerator> sortedGeneratorList;
 	private static List<IEntitySelectorFactory> entitySelectorFactories = Lists.newArrayList();
 	
+	
+	
+	
 	public enum Type {
 		BLOCK, ITEM;
 	}
@@ -94,60 +97,12 @@ public class GameRegistry {
 		return null;
 	}
 	
-	public static void addShapelessRecipe(ItemStack p0, Object... p1) {
-	}
-	
-	public static void addSubstitutionAlias(String p0, Type p1, Object p2) {
-	}
-	
-	public static Block findBlock(String p0, String p1) {
-		return null;
-	}
-	
-	public static Item findItem(String p0, String p1) {
-		return null;
-	}
-	
 	public static <K extends IForgeRegistryEntry<?>> K register(K p0, ResourceLocation p1) {
 		return p0;
 	}
 	
-	public static Block registerBlock(Block p1) {
-		return p1;
-	}
 	
-	public static Block registerBlock(Block p0, Class<? extends ItemBlock> p1) {
-		return p0;
-	}
 	
-	public static Block registerBlock(Block p0, Class<? extends ItemBlock> p1, Object... p2) {
-		return p0;
-	}
-	
-	public static Block registerBlock(Block p0, Class<? extends ItemBlock> p1, String p2) {
-		return p0;
-	}
-	
-	public static Block registerBlock(Block p0, Class<? extends ItemBlock> p1, String p2, Object... p3) {
-		return p0;
-	}
-	
-	public static Block registerBlock(Block p0, String p1) {
-		return p0;
-	}
-	
-	public static void registerItem(Item p1) {
-	}
-	
-	public static void registerItem(Item p0, String p1) {
-	}
-	
-	public static void registerTileEntityWithAlternatives(Class<? extends TileEntity> p0, String p1, String... p2) {
-	}
-	
-	public static Block registerWithItem(Block p1) {
-		return p1;
-	}
 	
 	/**
 	 * Register a world generator - something that inserts new block types into the
