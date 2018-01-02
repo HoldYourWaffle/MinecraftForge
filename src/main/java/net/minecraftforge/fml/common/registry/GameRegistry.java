@@ -97,6 +97,9 @@ public class GameRegistry {
 		return null;
 	}
 	
+	public static void addShapelessRecipe(ItemStack p0, Object... p1) {
+	}
+	
 	public static <K extends IForgeRegistryEntry<?>> K register(K p0, ResourceLocation p1) {
 		return p0;
 	}
