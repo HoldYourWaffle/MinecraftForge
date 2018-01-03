@@ -1,15 +1,21 @@
 package info.zthings.mcmods.recipeconverter;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Map;
 
-import org.apache.logging.log4j.core.Logger;
+import com.google.common.collect.Maps;
 
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
-import net.minecraft.item.crafting.RecipeFireworks;
+import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.item.crafting.ShapedRecipes;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.MinecraftForgeClient;
-import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.crafting.CraftingHelper;
+import net.minecraftforge.common.crafting.CraftingHelper.ShapedPrimer;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 
 public abstract class GameRegistryExtension {
@@ -25,7 +31,10 @@ public abstract class GameRegistryExtension {
 	public static IRecipe addShapedRecipe(ItemStack p0, Object... p1) {
 		//STUB
 		System.out.println("Adding shaped recipe: " + Arrays.toString(p1) + " -> " + p0.getCount() + "x" + p0.getItem().getUnlocalizedName());
-		return null;
+		
+		ShapedPrimer primer = CraftingHelper.parseShaped(p1);
+		String group = "test"; //STUB
+        return new ShapedRecipes(group == null ? "" : group.toString(), primer.width, primer.height, primer.input, p0);
 	}
 	public static void addRecipe(ItemStack p0, Object... p1) { addShapedRecipe(p0, p1); }
 	
