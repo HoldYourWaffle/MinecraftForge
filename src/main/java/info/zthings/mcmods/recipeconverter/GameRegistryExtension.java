@@ -1,18 +1,10 @@
 package info.zthings.mcmods.recipeconverter;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Map;
 
-import com.google.common.collect.Maps;
-
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
-import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.item.crafting.ShapedRecipes;
-import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.common.crafting.CraftingHelper.ShapedPrimer;

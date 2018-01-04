@@ -1,63 +1,17 @@
-# How to install Forge: For Players
+# What this does
+It modifies forge to convert the old method of recipe-registering from 1.11 into the new JSON-format in an easy and (hopefully) painless way.
 
-Go to [http://files.minecraftforge.net](http://files.minecraftforge.net)
- and select the minecraft version you wish to get forge for from the list.
+# What this doesn't do
+- It doesn't update your mod to 1.11, that would be very hard to do. It just automatically generates the recipe JSON files
+- It doesn't "support" configurable recipes. It *does* generate the JSON files (as long as they're enabled when converting [see 'How to use this']), but they won't be made configurable. To update this behavior you'll have to use the `IConditionFactory`. [This](http://www.minecraftforge.net/forum/topic/60413-112how-to-make-recipes-configurable/#elComment_281664) helpful forum post by [Choonster](https://github.com/Choonster) is a good start.
 
-You can download the installer for the *Recommended Build* or the
- *Lastest build* there. Latest builds may have newer features  but may be
- more unstable as a result. The installer will attempt to install forge
- into your vanilla launcher environment, where you can then create a new
- profile using that version and play the game!
+# Why would I want this
+To make your life easier while updating your mod to 1.12. Especially if you have a lot of recipes.
 
-Here is a short video from Rorax showing how to install and setup Forge.
+# How it works
+It's actually very simple. Only 2 files have been modified:
+[GameRegistry](https://github.com/HoldYourWaffle/MinecraftForge-1.12-RecipeConvertingAssistance/blob/recipe-assistance/src/main/java/net/minecraftforge/fml/common/registry/GameRegistry.java) now extends [GameRegistryExtension](https://github.com/HoldYourWaffle/MinecraftForge-1.12-RecipeConvertingAssistance/blob/recipe-assistance/src/main/java/info/zthings/mcmods/recipeconverter/GameRegistryExtension.java) (who'd have guessed?)
+This extension class provides the old recipe-registering methods so your old 1.11-compatible recipe-registering code compiles perfectly. The implementation of this methods if different though, it generates the JSON for the recipe specified with the parameters and places them *in a folder*.
 
-[![HOWTO Install Forge](https://img.youtube.com/vi/lB3ArN_-3Oc/0.jpg)](https://www.youtube.com/watch?v=lB3ArN_-3Oc)
-
-For support and user questions, visit [http://www.minecraftforge.net](http://www.minecraftforge.net).
- 
-# How to install Forge: For Modders
-
-If you wish to setup a new mod for Forge, visit
- [http://files.minecraftforge.net](http://files.minecraftforge.net) and
- select the **MDK** download.
-
-This is the `Modder Developer Kit` - basically, an example mod with all
- the tooling needed to create a Forge mod workspace ready for use in your
- IDE of choice.
-
-Here is a short video from @cpw showing how to install and setup the MDK
- in Intellij.
-
-[![HOWTO Install MDK](https://img.youtube.com/vi/PfmlNiHonV0/0.jpg)](https://www.youtube.com/watch?v=PfmlNiHonV0)
- 
-# How to install Forge: For those wishing to work on Forge itself
-
-If you wish to actually inspect Forge, submit PRs or otherwise work
- with Forge itself, you're in the right place! Clone this (either
- directly, or make a Fork first if you want to make a PR) and run
- ```gradlew.bat setupForge``` or ```gradlew setupForge```. This will download and 
- setup all the bits you need to have a functional Forge workspace.
-
-After that, open a workspace in your favorite IDE and import existing projects
- the projects folder. 
- 
-Here is a short video from @cpw showing how to install and setup Forge
- in Intellij.
- 
-[![HOWTO Install MDK](https://img.youtube.com/vi/yanCpy8p2ZE/0.jpg)](https://www.youtube.com/watch?v=yanCpy8p2ZE)
-
-## Pull requests
-
-Pull requests should target the current default branch. Currently, that is 
- the 1.10.x branch for Minecraft 1.10.2.
-
-If you intend to modify a minecraft patch, or add a new one, always run
-```gradlew genPatches``` to generate your patch and validate that you
-are not doing anything unexpected in your patch.
-
-### Contributor License Agreement
-As stated in the (https://github.com/MinecraftForge/MinecraftForge/blob/1.10.x/LICENSE-new.txt)
- file, we require all contributors to acknowledge the Forge Contributor
- License Agreement. Please ensure you have a valid email address
- associated with your github account to do this. If you have previously
- signed it, you should be OK.
+# How to use this
+I haven't quite figured this out yet (as I'm only on v0.0.0 and there isn't any *actual* implementation yet). It'll probably involve using a gradle plugin in addition to [ForgeGradle](https://github.com/MinecraftForge/ForgeGradle) with a task running your mod with this modified version of gradle.
